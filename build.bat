@@ -9,4 +9,4 @@ rmdir /S/Q build\Antistasi.Altis\Templates\A3-AA-BLUFORTemplate.Altis
 rmdir /S/Q build\Antistasi.Altis\Templates\A3-AATemplate.Altis
 rmdir /S/Q build\Antistasi.Altis\Templates\A3-WotPTemplate.Tanoa
 
-makepbo -P build\Antistasi.Altis\ build\Antistasi.Altis.pbo
+makepbo -PN build\Antistasi.Altis\ build\Antistasi.Altis.pbo
