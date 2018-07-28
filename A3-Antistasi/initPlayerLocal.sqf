@@ -4,6 +4,12 @@ if (hasInterface) then
 	waitUntil {player == player};
 	player removeweaponGlobal "itemmap";
 	player removeweaponGlobal "itemgps";
+
+	// STAMINA DISABLE
+	player enableStamina false;
+	player forceWalk false;
+	player addEventHandler ["Respawn", {player enableStamina false}];
+	player addEventHandler ["Respawn", {player forceWalk false}];
 	};
 if (isMultiplayer) then
 	{
