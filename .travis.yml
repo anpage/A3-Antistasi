@@ -1,0 +1,18 @@
+sudo: required
+services:
+- docker
+install:
+- docker pull anpage/makepbo
+script:
+- docker run --rm -v ${PWD}:/data --entrypoint "bash" anpage/makepbo build.sh
+deploy:
+  provider: releases
+  api_key:
+    secure: XxwtehlCyVLsx+By4gfwuIbyrJhiC/ndxr/VOLx7t7u7EtLeao9HhoSmx+DTVvoGf+ooPka5PneDCuA7imNbrOjQxQ/HW353w2jMaoDXGQHN+ulYMeqvSjlTIAxvpE5/W0Ga3ZoMImdbpe9IKS9KeGUmHel+/PWht9oJTr0O/Z3TCDwp0eA5t/NXeFCGZkZ/HXOtv2hpmQurdb4DR46UAIcYPcp/kGh4ZL4F62KdxwugjI+f2J6ravp2fUBISULteYh81W3FrAiKwcPOPm8iwczignJKzX8/fmeRE+Gir8pI7WNcAOiuTTa495CoDp6pPEnTEVadzkv1safRL5sAsd+UnD/1LbKAqKqO+s2QpSIlAE7RD88XW1FLyuwFsC+PcPBjKnUZBxHzHdqO+La3796K7rCX/1muUidWDgq2uNKeaM3PcErP7GueBUEdlYaWBzCWOysw4u2d6ftIxDTf36g5opLf5BJIyMcNv+QgrWO7uI75NAgo7DkQCn0wjOP5/RJ4d6uCErK3hUFNxVEf3EsTaLRYkSO2/3//q0RsDY7EJ7Y6ybrHEBeqNqmkG1vWMKa4feq0PuQTSGjFq953K7Q8XX7EjxEYYiDWvffW9kFxQg/92L7ur1RlfY0M4oj6+loEa+0oFiw8pPVTuTkstuRHbFD+rlLe/tKBb2ObS5s=
+  file_glob: true
+  file: build/*
+  skip_cleanup: true
+  on:
+    repo: anpage/A3-Antistasi
+    branch: valter
+    tag: true

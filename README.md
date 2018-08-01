@@ -1,8 +1,8 @@
 # A3-Antistasi
 
-A Persistent Whole Map Mission, for SP or MP co-op, focused on Resistance, Infantry and Guerrilla Tactics. 
+A Persistent Whole Map Mission, for SP or MP co-op, focused on Resistance, Infantry and Guerrilla Tactics.
 
-Features: 
+Features:
 
 - Playable in SP, MP, and persistent open server MP.
 - Blufor vs Greenfor vs Redfor with dynamic battles, let Blufor and Redfor fight and strike them while they're busy, don't draw too much attention or the aggressivity against SDK will increase, causing heavy reactions. Be nice with their wounded instead; If healed they might think to join you!
@@ -10,15 +10,31 @@ Features:
 - AI Enemy Commander which reacts to your movements and manages his resources.
 - Around 18 possible Sidemissions: Assasination, Logistics, Destroy Assets, Rescue POWS, Conquer Missions with a wide variety for each type.
 - Possibility of Undercovered Operations, same as a Resistance soldier can do.
-- Persistent Stat Save System: You won't lose game or server progress upon a game update. 
+- Persistent Stat Save System: You won't lose game or server progress upon a game update.
 - Enhanced AI Squadmate control.
 - AI friendlies and enemy can drag/carry and heal injured soldiers, not working with ACE3 mod.
 - AI Garrisons that use static weapon you add .
-- Forests get destroyed as long as the war evolves. 
-- Up to 3 Headless Client supported. 
-- Integrated Mods: [TFAR](https://steamcommunity.com/sharedfiles/filedetails/?id=620019431), [ACRE](https://steamcommunity.com/sharedfiles/filedetails/?id=751965892&searchtext=acre), [RHS: AFRF, USAF and GREF](https://steamcommunity.com/workshop/filedetails/?id=843770737), [FFAA](https://steamcommunity.com/sharedfiles/filedetails/?id=820994401&searchtext=FFAA), [ACE](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057) or, to keep the unique features of AI that would be disabled with ACE medical system: [ACE no medical](https://steamcommunity.com/sharedfiles/filedetails/?id=1316471790). None of them mandatory. 
+- Forests get destroyed as long as the war evolves.
+- Up to 3 Headless Client supported.
+- Integrated Mods: [TFAR](https://steamcommunity.com/sharedfiles/filedetails/?id=620019431), [ACRE](https://steamcommunity.com/sharedfiles/filedetails/?id=751965892&searchtext=acre), [RHS: AFRF, USAF and GREF](https://steamcommunity.com/workshop/filedetails/?id=843770737), [FFAA](https://steamcommunity.com/sharedfiles/filedetails/?id=820994401&searchtext=FFAA), [ACE](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057) or, to keep the unique features of AI that would be disabled with ACE medical system: [ACE no medical](https://steamcommunity.com/sharedfiles/filedetails/?id=1316471790). None of them mandatory.
 
 # How to setup
+
+## Docker
+
+You can build this mission into a pbo by using Docker:
+
+`docker run --rm -v ${PWD}:/data --entrypoint "bash" anpage/makepbo build.sh`
+
+Currently this builds every island's mission into PBOs, inside the `build` folder. More granular options to come.
+
+## Linux
+
+If you don't want to use docker and have Mikero's DOS tools installed, you can simply run
+
+`./build.sh`
+
+## Manually
 
 There are 2 islands in the same repository so you have to:
 - Download the Github repository
