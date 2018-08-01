@@ -15,4 +15,4 @@ deploy:
   on:
     repo: anpage/A3-Antistasi
     branch: valter
-    tag: true
+    tags: true
