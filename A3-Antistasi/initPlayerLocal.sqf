@@ -122,7 +122,7 @@ if (player getVariable ["pvp",false]) exitWith
 	if ((!_isJIP) or (paramsArray select 6 != 1)) then
 		{
 		["noPvP",false,1,false,false] call BIS_fnc_endMission;
-		diag_log "Antistasi: PvP player kicked because he is not jipping";
+		diag_log "Antistasi: PvP player kicked because he is not jipping or PvP slots are disabled";
 		}
 	else
 		{
@@ -161,12 +161,12 @@ if (player getVariable ["pvp",false]) exitWith
 		private ["_unit","_veh"];
 		_unit = _this select 0;
 		_veh = _this select 2;
-		if (_veh != _moto) then
+		if (_veh != moto) then
 			{
-			if !(typeOf _veh in vehNormal) then
+			if !((typeOf _veh) in (vehNATOLightUnarmed + vehCSATLightUnarmed)) then
 				{
 				moveOut player;
-				hint format ["You are only allowed to use your Quadbike or %1 non armed vehicles",nameMalos];
+				hint "PvP player are only allowed to use their own or other PvP player vehicles";
 				};
 			};
 		}];
@@ -430,6 +430,7 @@ if (isMultiplayer) then
 				};
 			_nonMembers = {(side group _x == buenos) and !([_x] call isMember)} count playableUnits;
 			if (_nonMembers >= (playableSlotsNumber buenos) - bookedSlots) then {["memberSlots",false,1,false,false] call BIS_fnc_endMission};
+			if (memberDistance != 16000) then {[] execVM "orgPlayers\nonMemberDistance.sqf"};
 			};
 		};
 	};
@@ -472,7 +473,7 @@ if (_isJip) then
 				} forEach playableUnits;
 				};
 			};*/
-		if ({[_x] call isMember} count playableUnits == 1) then
+		if ({([_x] call isMember) and (side (group _x) == buenos)} count playableUnits == 1) then
 			{
 			[player] call theBossInit;
 			[] remoteExec ["assigntheBoss",2];
