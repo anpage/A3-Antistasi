@@ -16,7 +16,7 @@ rm -rf build/Antistasi.Altis/
 # Build blufor Altis
 cp -r A3-Antistasi/Templates/A3-AA-BLUFORTemplate.Altis build/Antistasi.BLUFOR.Altis
 cp -r A3-Antistasi/* build/Antistasi.BLUFOR.Altis
-rm -rf build/Antistasi.Altis/Templates/*/
+rm -rf build/Antistasi.BLUFOR.Altis/Templates/*/
 
 makepbo -P -X none -Z default build/Antistasi.BLUFOR.Altis/ build/Antistasi.BLUFOR.Altis.pbo
 
